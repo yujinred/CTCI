@@ -4,9 +4,21 @@ import com.company.ctci.TestUtil;
 
 public class TestArraysAndStrings {
 
+    private static final ArraysAndStrings solution = new ArraysAndStrings();
+
+    private static void testReverseString() throws Exception {
+        TestUtil.assertEquals("Should reverse the string",
+                solution.reverseString("Dog"),
+                "goD");
+        TestUtil.assertEquals("Empty String",
+                solution.reverseString(""),
+                "");
+        TestUtil.assertEquals("Reverse this string",
+                solution.reverseString("wow this is a long string"),
+                "gnirts gnol a si siht wow");
+    }
 
     private static void testUniqueChar() throws Exception {
-        ArraysAndStrings solution = new ArraysAndStrings();
         TestUtil.assertEquals("All letters should be unique",
                 solution.hasAllUniqueCharacters("asdfg"),
                 true
@@ -24,6 +36,7 @@ public class TestArraysAndStrings {
     public static void main(String[] args) {
         try {
             testUniqueChar();
+            testReverseString();
         } catch (Exception e) {
             e.printStackTrace();
         }
