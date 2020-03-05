@@ -6,6 +6,34 @@ public class TestArraysAndStrings {
 
     private static final ArraysAndStrings solution = new ArraysAndStrings();
 
+    private static void testIsAnagram() throws Exception {
+        TestUtil.assertEquals("Left is empty",
+                solution.isAnagram("", "abc"),
+                false);
+
+        TestUtil.assertEquals("Right is empty",
+                solution.isAnagram("abc", ""),
+                false);
+
+        TestUtil.assertEquals("Actual test this time",
+                solution.isAnagram("cba", "abc"),
+                true);
+
+        TestUtil.assertEquals("Cool anagram",
+                solution.isAnagram("admirer", "married"),
+                true);
+    }
+
+    private static void testRemoveDuplicates() throws Exception {
+        TestUtil.assertEquals("it works!",
+                solution.removeDuplicates("aaabbccd"),
+                "abcd");
+
+        TestUtil.assertEquals("it works for strings unordered!",
+                solution.removeDuplicates("zqsdczpos"),
+                "zqsdcpo");
+    }
+
     private static void testReverseString() throws Exception {
         TestUtil.assertEquals("Should reverse the string",
                 solution.reverseString("Dog"),
@@ -37,6 +65,8 @@ public class TestArraysAndStrings {
         try {
             testUniqueChar();
             testReverseString();
+            testRemoveDuplicates();
+            testIsAnagram();
         } catch (Exception e) {
             e.printStackTrace();
         }
